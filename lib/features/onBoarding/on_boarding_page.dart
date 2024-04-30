@@ -2,6 +2,7 @@
 
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mini_nft/core/resources/color_manager.dart';
@@ -53,13 +54,62 @@ class OnBoardingPage extends StatelessWidget {
                     child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                   child: Container(
-                    width: double.infinity,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white.withOpacity(.2),
-                    ),
-                  ),
+                      width: double.infinity,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white.withOpacity(.2),
+                      ),
+                      child: Column(children: [
+                        Spacer(flex: 1),
+                        Text(
+                          'Explore and Mint NFTs',
+                          style: TextStyle(
+                            color: ColorManager.KColorWhite,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: FontManager.SfProDisplay,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          'You can buy and sell the NFTs of the best\nartisits in the world.',
+                          style: TextStyle(
+                            color: Color(0xffEBEBF5).withOpacity(0.6),
+                            fontSize: 16,
+                            fontWeight: FontWeight.normal,
+                            fontFamily: FontManager.SfProDisplay,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Spacer(),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white, width: 2),
+                            color: Color(0xff97A9F6),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: BackdropFilter(
+                              
+                              filter:
+                                  ImageFilter.blur(sigmaX: 100, sigmaY: 100),
+                                  
+                                  
+                              child: MaterialButton(
+                                onPressed: () {},
+                                child: Text(
+                                  'Get Started Now',
+                                ),
+                                minWidth: 200,
+                                textColor: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Spacer(flex: 1),
+                      ])),
                 ))
               ],
             ),

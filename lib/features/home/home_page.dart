@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mini_nft/core/resources/font_manager.dart';
+import 'package:mini_nft/core/resources/route_manager.dart';
 import 'package:mini_nft/features/home/models/lists.dart';
 import 'package:mini_nft/features/home/widgets/custom_category_home_page.dart';
 
@@ -42,9 +43,19 @@ class _HomePageState extends State<HomePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Icon(Icons.home, color: Colors.white, size: 30),
-                        Icon(Icons.stacked_bar_chart,
-                            color: Colors.white, size: 30),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                  context, RouteName.onBoardingPage);
+                            },
+                            icon: Icon(Icons.home,
+                                color: Colors.white, size: 30)),
+                        IconButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, RouteName.StatsPage);
+                            },
+                            icon: Icon(Icons.stacked_bar_chart,
+                                color: Colors.white, size: 30)),
                         Icon(Icons.search, color: Colors.white, size: 30),
                         Icon(Icons.person, color: Colors.white, size: 30),
                       ],

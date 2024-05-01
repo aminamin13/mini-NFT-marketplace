@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mini_nft/core/resources/color_manager.dart';
 import 'package:mini_nft/core/resources/font_manager.dart';
+import 'package:mini_nft/core/resources/route_manager.dart';
 import 'package:mini_nft/core/resources/string_manager.dart';
 
 class OnBoardingPage extends StatelessWidget {
@@ -92,13 +93,13 @@ class OnBoardingPage extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
                             child: BackdropFilter(
-                              
                               filter:
                                   ImageFilter.blur(sigmaX: 100, sigmaY: 100),
-                                  
-                                  
                               child: MaterialButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamedAndRemoveUntil(context,
+                                      RouteName.HomePage, (route) => true);
+                                },
                                 child: Text(
                                   'Get Started Now',
                                 ),

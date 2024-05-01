@@ -129,3 +129,76 @@ class CustomCollectionHomePage extends StatelessWidget {
           );
   }
 }
+
+
+
+class TopSellerHomePage extends StatelessWidget {
+  const TopSellerHomePage({
+    Key? key,
+    required this.title,
+    required this.likes,
+    required this.image,
+  }) : super(key: key);
+
+  final String title;
+  final int likes;
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+                width: 175,
+                height: 195,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white.withOpacity(.2),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image(
+                        image: AssetImage(image),
+                        width: 139,
+                        height: 139,
+                      ),
+                    ),
+                    Spacer(),
+                    Row(
+                      children: [
+                        Text(title,
+                            style: TextStyle(
+                                fontFamily: FontManager.SfProDisplay,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.white.withOpacity(0.8))),
+                        Spacer(),
+                        Row(
+                          children: [
+                            Icon(Icons.favorite, color: Colors.red),
+                            Text(likes.toString(),
+                                style: TextStyle(
+                                    fontFamily: FontManager.SfProDisplay,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                    color: Colors.white.withOpacity(0.5))),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Spacer(flex: 1)
+                  ]),
+                )),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
